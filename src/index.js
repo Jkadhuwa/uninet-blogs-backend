@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import swaggerUi from 'swagger-ui-express';
 import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
@@ -7,7 +6,6 @@ import passport from 'passport';
 import session from 'express-session';
 import cors from 'cors';
 import { config } from 'dotenv';
-import SwaggerDocument from '../swagger.json';
 import db from './sequelize/models';
 import router from './routes';
 import passConfig from './config/passport/passport';
@@ -35,13 +33,12 @@ app.use(
 
 app.use(morgan('dev'));
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(SwaggerDocument));
 
 app.use('/api/v1', router);
 
 app.get('/', (req, res) => {
   res.status(200).json({
-    message: 'Welcome to Authors Haven'
+    message: 'Welcome to UniNet Blogs System'
   });
 });
 
