@@ -1,5 +1,5 @@
 {
-  "name": "express-authorshaven",
+  "name": "uninetblogsystem",
   "version": "1.0.0",
   "description": "A Social platform for the creative at heart",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "dev": "nodemon --exec babel-node ./src/index.js",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "build": "rm -rf build && babel -d ./build ./src -s",
-    "start": "npm run build && npm run migrate && npm run seed && node ./build/index.js",
+    "start": "npm run build && npm run migrate && node ./build/index.js",
     "pretest": "cross-env NODE_ENV=test npm run down && cross-env NODE_ENV=test npm run migrate  && cross-env NODE_ENV=test npm run seed",
     "test": "cross-env NODE_ENV=test nyc --reporter=text mocha  --require @babel/register --require @babel/polyfill  ./src/tests/*.js --timeout 50000 --exit",
     "down": "node_modules/.bin/sequelize db:migrate:undo:all",
@@ -19,7 +19,7 @@
   "engines": {
     "node": "10.16.0"
   },
-  "author": "Andela Simulations Programme",
+  "author": "LMS",
   "license": "MIT",
   "dependencies": {
     "arr-pluck": "^0.1.0",
@@ -44,7 +44,6 @@
     "sequelize": "^5.12.0",
     "sequelize-cli": "^5.5.0",
     "slug": "^1.1.0",
-    "swagger-ui-express": "^4.0.7",
     "underscore": "^1.9.1",
     "uniqid": "^5.0.3"
   },
@@ -57,6 +56,8 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/register": "^7.5.5",
     "@babel/runtime": "^7.5.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "coveralls": "^3.0.5",
