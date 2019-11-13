@@ -9,17 +9,6 @@ const verifyToken = async (req, res, next) => {
       if (error) {
         return res.status(403).json({ error: `${error.message}` });
       }
-      // if (token) {
-      //   const identifier = token.match(/\d+/g).join('');
-      //   const droppedToken = await DroppedToken.findOne({ where: { identifier }, logging: false });
-
-      //   // Return user logged out message
-      //   if (droppedToken) {
-      //     return res.status(401).send({
-      //       message: 'You are already logged out!'
-      //     });
-      //   }
-      // }
       req.userData = decoded;
       next();
     });
